@@ -13,36 +13,12 @@
             overflow: hidden;
             text-align: center;
         }
-        h1, h2 {
-            color: #FFD700;
-        }
-        a {
-            color: #1E90FF;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        ul li {
-            margin: 5px 0;
-        }
-        code {
-            background-color: #333;
-            color: #FFD700;
-            padding: 2px 4px;
-            border-radius: 4px;
-        }
-        #matrix {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
         #titan {
             font-size: 60px;
             margin-top: 20px;
             margin-bottom: 20px;
             animation: merge 2s forwards;
+            text-shadow: 2px 2px 2px #333, 4px 4px 4px #222, 6px 6px 6px #111;
         }
         @keyframes merge {
             0% { letter-spacing: 1em; }
@@ -53,6 +29,17 @@
             font-size: 100px;
             color: #FFD700;
         }
+        #description {
+            margin-top: 20px;
+            font-size: 20px;
+            padding: 0 20px;
+        }
+        #matrix {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
     </style>
 </head>
 <body>
@@ -61,50 +48,7 @@
 
 <div id="titan">T I T A N</div>
 <div id="logo">T</div>
-
-<h1>Welcome to Titan Bot</h1>
-
-<h2>Introduction</h2>
-
-<p>Welcome to the home page of Titan Bot! Titan Bot is designed to assist you with a variety of tasks, offering seamless integration and powerful features to enhance your productivity.</p>
-
-<h2>Table of Contents</h2>
-<ul>
-    <li><a href="#features">Features</a></li>
-    <li><a href="#getting-started">Getting Started</a></li>
-    <li><a href="#documentation">Documentation</a></li>
-    <li><a href="#support">Support</a></li>
-    <li><a href="#contact">Contact</a></li>
-</ul>
-
-<h2 id="features">Features</h2>
-<ul>
-    <li><strong>Automation</strong>: Automate repetitive tasks to save time.</li>
-    <li><strong>Integration</strong>: Easily integrate with other tools and platforms.</li>
-    <li><strong>Customizable</strong>: Tailor the bot to meet your specific needs.</li>
-    <li><strong>User-Friendly</strong>: Simple and intuitive interface.</li>
-</ul>
-
-<h2 id="getting-started">Getting Started</h2>
-<p>To get started with Titan Bot, follow these simple steps:</p>
-<ol>
-    <li><strong>Install the Bot</strong>: Download and install Titan Bot from the <a href="#">official website</a>.</li>
-    <li><strong>Configure</strong>: Set up your preferences and integrations.</li>
-    <li><strong>Use</strong>: Start using Titan Bot to automate tasks and improve productivity.</li>
-</ol>
-
-<h2 id="documentation">Documentation</h2>
-<p>For detailed information on how to use Titan Bot, visit our <a href="#">Documentation</a>.</p>
-
-<h2 id="support">Support</h2>
-<p>If you need assistance, check out our <a href="#">Support Page</a> or contact our support team.</p>
-
-<h2 id="contact">Contact</h2>
-<p>Feel free to reach out to us at <a href="mailto:support@titanbot.com">support@titanbot.com</a> for any inquiries or feedback.</p>
-
-<hr>
-
-<p>Thank you for choosing Titan Bot! We hope it enhances your productivity and streamlines your workflow.</p>
+<div id="description">Titan is a multi-purpose Discord bot for all your Politics and War needs. From applications to tickets to general information, Titan is here to make your life easy!</div>
 
 <script>
     const canvas = document.getElementById('matrix');
