@@ -5,11 +5,12 @@
     <title>Titan Bot Home Page</title>
     <style>
         body {
-            background-color: black;
-            color: white;
-            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            background: black;
+            overflow: hidden;
         }
         h1, h2 {
             color: #FFD700;
@@ -30,9 +31,17 @@
             padding: 2px 4px;
             border-radius: 4px;
         }
+        #matrix {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
     </style>
 </head>
 <body>
+
+<canvas id="matrix"></canvas>
 
 <h1>Welcome to Titan Bot</h1>
 
@@ -77,6 +86,43 @@
 <hr>
 
 <p>Thank you for choosing Titan Bot! We hope it enhances your productivity and streamlines your workflow.</p>
+
+<script>
+    const canvas = document.getElementById('matrix');
+    const ctx = canvas.getContext('2d');
+    
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    const fontSize = 16;
+    const columns = canvas.width / fontSize;
+    
+    const drops = [];
+    for(let x = 0; x < columns; x++) {
+        drops[x] = 1;
+    }
+    
+    function draw() {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
+        ctx.fillStyle = "#0F0";
+        ctx.font = fontSize + "px monospace";
+        
+        for(let i = 0; i < drops.length; i++) {
+            const text = letters[Math.floor(Math.random() * letters.length)];
+            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+            
+            if(drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                drops[i] = 0;
+            }
+            drops[i]++;
+        }
+    }
+    
+    setInterval(draw, 33);
+</script>
 
 </body>
 </html>
