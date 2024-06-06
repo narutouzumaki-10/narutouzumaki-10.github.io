@@ -18,7 +18,7 @@
             margin-top: 20px;
             margin-bottom: 20px;
             animation: merge 2s forwards;
-            text-shadow: 2px 2px 2px #333, 4px 4px 4px #222, 6px 6px 6px #111;
+            text-shadow: 1px 1px 0 #ccc, 2px 2px 0 #bbb, 3px 3px 0 #aaa, 4px 4px 0 #999, 5px 5px 0 #888, 6px 6px 0 #777, 7px 7px 0 #666, 8px 8px 0 #555, 9px 9px 0 #444;
         }
         @keyframes merge {
             0% { letter-spacing: 1em; }
@@ -67,29 +67,27 @@
     
     const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     const fontSize = 16;
-    const columns = canvas.width / fontSize;
+    const columns = Math.floor(canvas.width / fontSize);
     
-    const drops = [];
-    for (let x = 0; x < columns; x++) {
-        drops[x] = 1;
-    }
+    const drops = Array(columns).fill(1);
     
     function draw() {
         ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         
         ctx.fillStyle = "#0F0";
-        ctx.font = fontSize + "px monospace";
+        ctx.font = `${fontSize}px monospace`;
         
-        for (let i = 0; i < drops.length; i++) {
+        drops.forEach((y, index) => {
             const text = letters[Math.floor(Math.random() * letters.length)];
-            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+            const x = index * fontSize;
+            ctx.fillText(text, x, y * fontSize);
             
-            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                drops[i] = 0;
+            if (y * fontSize > canvas.height && Math.random() > 0.975) {
+                drops[index] = 0;
             }
-            drops[i]++;
-        }
+            drops[index]++;
+        });
     }
     
     setInterval(draw, 33);
