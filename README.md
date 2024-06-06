@@ -1,25 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Titan Bot Home Page</title>
-    <style>
-        body {
-            background-color: black;
-            color: white;
-            font-family: Arial, sans-serif;
-        }
-        h1, h2 {
-            color: #FFD700;
-        }
-        a {
-            color: #1E90FF;
-        }
-    </style>
-</head>
-<body>
-
 # Welcome to Titan Bot
 
 ## Introduction
