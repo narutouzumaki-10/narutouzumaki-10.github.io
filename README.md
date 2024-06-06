@@ -11,6 +11,7 @@
             color: white;
             background: black;
             overflow: hidden;
+            text-align: center;
         }
         h1, h2 {
             color: #FFD700;
@@ -37,11 +38,29 @@
             height: 100%;
             z-index: -1;
         }
+        #titan {
+            font-size: 60px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            animation: merge 2s forwards;
+        }
+        @keyframes merge {
+            0% { letter-spacing: 1em; }
+            100% { letter-spacing: normal; }
+        }
+        #logo {
+            margin-top: 20px;
+            font-size: 100px;
+            color: #FFD700;
+        }
     </style>
 </head>
 <body>
 
 <canvas id="matrix"></canvas>
+
+<div id="titan">T I T A N</div>
+<div id="logo">T</div>
 
 <h1>Welcome to Titan Bot</h1>
 
