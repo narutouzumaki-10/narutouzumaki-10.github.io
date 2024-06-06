@@ -28,6 +28,7 @@
             margin-top: 20px;
             font-size: 100px;
             color: #FFD700;
+            text-shadow: 2px 2px 2px #333, 4px 4px 4px #222, 6px 6px 6px #111;
         }
         #description {
             margin-top: 20px;
@@ -35,7 +36,9 @@
             padding: 0 20px;
         }
         #matrix {
-            position: absolute;
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
@@ -54,15 +57,20 @@
     const canvas = document.getElementById('matrix');
     const ctx = canvas.getContext('2d');
     
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
     
     const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     const fontSize = 16;
     const columns = canvas.width / fontSize;
     
     const drops = [];
-    for(let x = 0; x < columns; x++) {
+    for (let x = 0; x < columns; x++) {
         drops[x] = 1;
     }
     
@@ -73,11 +81,11 @@
         ctx.fillStyle = "#0F0";
         ctx.font = fontSize + "px monospace";
         
-        for(let i = 0; i < drops.length; i++) {
+        for (let i = 0; i < drops.length; i++) {
             const text = letters[Math.floor(Math.random() * letters.length)];
             ctx.fillText(text, i * fontSize, drops[i] * fontSize);
             
-            if(drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
                 drops[i] = 0;
             }
             drops[i]++;
