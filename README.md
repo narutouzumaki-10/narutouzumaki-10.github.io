@@ -80,7 +80,7 @@
     <ul>
         <li><a href="https://discord.com/oauth2/authorize?client_id=1245637821709156425" target="_blank">Add To Server</a></li>
         <li><a href="#">Tutorial</a></li>
-        <li><a href="#">Support Server</a></li>
+        <li><a href="https://discord.com/invite/chUw5gYuyu" target="_blank">Support Server</a></li>
     </ul>
 </nav>
 
