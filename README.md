@@ -79,7 +79,7 @@
 <nav>
     <ul>
         <li><a href="https://discord.com/oauth2/authorize?client_id=1245637821709156425" target="_blank">Add To Server</a></li>
-        <li><a href="#">Tutorial</a></li>
+        <li><a href="tutorial.html" target="_blank">Tutorial</a></li>
         <li><a href="https://discord.com/invite/chUw5gYuyu" target="_blank">Support Server</a></li>
     </ul>
 </nav>
@@ -87,7 +87,6 @@
 <canvas id="matrix"></canvas>
 
 <div id="titan">T I T A N</div>
-<div id="logo">T</div>
 <div id="description">Titan is a multi-purpose Discord bot for all your Politics and War needs. From applications to tickets to general information, Titan is here to make your life easy!</div>
 
 <script>
