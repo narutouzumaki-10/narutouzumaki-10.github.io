@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -18,11 +19,11 @@
             margin-top: 20px;
             margin-bottom: 20px;
             text-shadow: 2px 2px #333, 4px 4px #222, 6px 6px #111;
-            animation: merge 2s forwards;
+            animation: merge 4s infinite;
         }
         @keyframes merge {
-            0% { letter-spacing: 1em; }
-            100% { letter-spacing: normal; }
+            0%, 100% { letter-spacing: 1em; }
+            50% { letter-spacing: normal; }
         }
         #logo {
             margin-top: 20px;
@@ -50,7 +51,6 @@
 <canvas id="matrix"></canvas>
 
 <div id="titan">T I T A N</div>
-<div id="logo">T</div>
 <div id="description">Titan is a multi-purpose Discord bot for all your Politics and War needs. From applications to tickets to general information, Titan is here to make your life easy!</div>
 
 <script>
