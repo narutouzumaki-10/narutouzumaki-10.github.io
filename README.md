@@ -87,7 +87,6 @@
 <canvas id="matrix"></canvas>
 
 <div id="titan">T I T A N</div>
-<div id="logo">T</div>
 <div id="description">Titan is a multi-purpose Discord bot for all your Politics and War needs. From applications to tickets to general information, Titan is here to make your life easy!</div>
 
 <script>
