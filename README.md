@@ -11,28 +11,34 @@
             color: white;
             background: black;
             overflow: hidden;
+            text-align: center;
         }
-        h1, h2 {
+        #titan {
+            font-size: 60px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px #333, 4px 4px #222, 6px 6px #111;
+            animation: merge 2s forwards;
+        }
+        @keyframes merge {
+            0% { letter-spacing: 1em; }
+            100% { letter-spacing: normal; }
+        }
+        #logo {
+            margin-top: 20px;
+            font-size: 100px;
             color: #FFD700;
+            text-shadow: 2px 2px #333, 4px 4px #222, 6px 6px #111;
         }
-        a {
-            color: #1E90FF;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        ul li {
-            margin: 5px 0;
-        }
-        code {
-            background-color: #333;
-            color: #FFD700;
-            padding: 2px 4px;
-            border-radius: 4px;
+        #description {
+            margin-top: 20px;
+            font-size: 20px;
+            padding: 0 20px;
         }
         #matrix {
-            position: absolute;
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
@@ -43,82 +49,45 @@
 
 <canvas id="matrix"></canvas>
 
-<h1>Welcome to Titan Bot</h1>
-
-<h2>Introduction</h2>
-
-<p>Welcome to the home page of Titan Bot! Titan Bot is designed to assist you with a variety of tasks, offering seamless integration and powerful features to enhance your productivity.</p>
-
-<h2>Table of Contents</h2>
-<ul>
-    <li><a href="#features">Features</a></li>
-    <li><a href="#getting-started">Getting Started</a></li>
-    <li><a href="#documentation">Documentation</a></li>
-    <li><a href="#support">Support</a></li>
-    <li><a href="#contact">Contact</a></li>
-</ul>
-
-<h2 id="features">Features</h2>
-<ul>
-    <li><strong>Automation</strong>: Automate repetitive tasks to save time.</li>
-    <li><strong>Integration</strong>: Easily integrate with other tools and platforms.</li>
-    <li><strong>Customizable</strong>: Tailor the bot to meet your specific needs.</li>
-    <li><strong>User-Friendly</strong>: Simple and intuitive interface.</li>
-</ul>
-
-<h2 id="getting-started">Getting Started</h2>
-<p>To get started with Titan Bot, follow these simple steps:</p>
-<ol>
-    <li><strong>Install the Bot</strong>: Download and install Titan Bot from the <a href="#">official website</a>.</li>
-    <li><strong>Configure</strong>: Set up your preferences and integrations.</li>
-    <li><strong>Use</strong>: Start using Titan Bot to automate tasks and improve productivity.</li>
-</ol>
-
-<h2 id="documentation">Documentation</h2>
-<p>For detailed information on how to use Titan Bot, visit our <a href="#">Documentation</a>.</p>
-
-<h2 id="support">Support</h2>
-<p>If you need assistance, check out our <a href="#">Support Page</a> or contact our support team.</p>
-
-<h2 id="contact">Contact</h2>
-<p>Feel free to reach out to us at <a href="mailto:support@titanbot.com">support@titanbot.com</a> for any inquiries or feedback.</p>
-
-<hr>
-
-<p>Thank you for choosing Titan Bot! We hope it enhances your productivity and streamlines your workflow.</p>
+<div id="titan">T I T A N</div>
+<div id="logo">T</div>
+<div id="description">Titan is a multi-purpose Discord bot for all your Politics and War needs. From applications to tickets to general information, Titan is here to make your life easy!</div>
 
 <script>
     const canvas = document.getElementById('matrix');
     const ctx = canvas.getContext('2d');
     
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
     
     const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     const fontSize = 16;
-    const columns = canvas.width / fontSize;
+    const columns = Math.floor(canvas.width / fontSize);
     
-    const drops = [];
-    for(let x = 0; x < columns; x++) {
-        drops[x] = 1;
-    }
+    const drops = Array(columns).fill(1);
     
     function draw() {
         ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         
         ctx.fillStyle = "#0F0";
-        ctx.font = fontSize + "px monospace";
+        ctx.font = `${fontSize}px monospace`;
         
-        for(let i = 0; i < drops.length; i++) {
+        drops.forEach((y, index) => {
             const text = letters[Math.floor(Math.random() * letters.length)];
-            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+            const x = index * fontSize;
+            ctx.fillText(text, x, y * fontSize);
             
-            if(drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                drops[i] = 0;
+            if (y * fontSize > canvas.height && Math.random() > 0.975) {
+                drops[index] = 0;
             }
-            drops[i]++;
-        }
+            drops[index]++;
+        });
     }
     
     setInterval(draw, 33);
