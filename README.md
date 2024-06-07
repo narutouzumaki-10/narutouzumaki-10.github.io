@@ -13,9 +13,38 @@
             overflow: hidden;
             text-align: center;
         }
+        nav {
+            width: 100%;
+            background: #333;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        nav ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 20px;
+        }
+        nav ul li a {
+            display: block;
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        nav ul li a:hover {
+            background: #575757;
+        }
         #titan {
             font-size: 60px;
-            margin-top: 20px;
+            margin-top: 100px; /* Adjusted for the nav bar */
             margin-bottom: 20px;
             text-shadow: 2px 2px #333, 4px 4px #222, 6px 6px #111;
             animation: merge 4s infinite;
@@ -47,9 +76,18 @@
 </head>
 <body>
 
+<nav>
+    <ul>
+        <li><a href="#">Add to Server</a></li>
+        <li><a href="#">Tutorial</a></li>
+        <li><a href="#">Support Server</a></li>
+    </ul>
+</nav>
+
 <canvas id="matrix"></canvas>
 
 <div id="titan">T I T A N</div>
+<div id="logo">T</div>
 <div id="description">Titan is a multi-purpose Discord bot for all your Politics and War needs. From applications to tickets to general information, Titan is here to make your life easy!</div>
 
 <script>
