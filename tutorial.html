@@ -17,12 +17,22 @@
             color: #FFD700;
             text-shadow: 2px 2px #333, 4px 4px #222, 6px 6px #111;
         }
-        h2 {
-            color: #1E90FF;
+        button {
+            background-color: grey;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
         }
-        p {
-            font-size: 18px;
-            color: #DDD;
+        button:hover {
+            background-color: #575757;
         }
         #matrix {
             position: fixed;
@@ -40,11 +50,8 @@
 
 <h1>Titan Bot Tutorial</h1>
 
-<h2>Military Build</h2>
-<p>Details about military build...</p>
-
-<h2>City Import</h2>
-<p>Details about city import...</p>
+<button id="military-btn">Military Build</button>
+<button id="city-btn">City Import</button>
 
 <script>
     const canvas = document.getElementById('matrix');
@@ -84,6 +91,14 @@
     }
     
     setInterval(draw, 33);
+    
+    document.getElementById('military-btn').addEventListener('click', () => {
+        alert('Details about military build...');
+    });
+
+    document.getElementById('city-btn').addEventListener('click', () => {
+        alert('Details about city import...');
+    });
 </script>
 
 </body>
