@@ -42,6 +42,16 @@
             height: 100%;
             z-index: -1;
         }
+        .content {
+            margin-top: 20px;
+        }
+        .content img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #FFD700;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
     </style>
 </head>
 <body>
@@ -52,6 +62,13 @@
 
 <button id="military-btn">Military Build</button>
 <button id="city-btn">City Import</button>
+
+<div id="city-content" class="content" style="display: none;">
+    <h2>City Import</h2>
+    <p>Details about city import...</p>
+    <img src="image1.jpg" alt="City Image 1">
+    <img src="image2.jpg" alt="City Image 2">
+</div>
 
 <script>
     const canvas = document.getElementById('matrix');
@@ -93,11 +110,11 @@
     setInterval(draw, 33);
     
     document.getElementById('military-btn').addEventListener('click', () => {
-        alert('Uploading...');
+        alert('Details about military build...');
     });
 
     document.getElementById('city-btn').addEventListener('click', () => {
-        alert('Uploading...');
+        document.getElementById('city-content').style.display = 'block';
     });
 </script>
 
